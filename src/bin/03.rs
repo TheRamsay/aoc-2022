@@ -5,11 +5,11 @@ use itertools::Itertools;
 pub fn part_one(input: &str) -> Option<u32> {
     let mut acc: u32 = 0;
     for rucksack in input.lines() {
-        let idx = rucksack.len()/2;
+        let idx = rucksack.len() / 2;
 
         let first: HashSet<char> = rucksack[0..idx].chars().collect();
         let second: HashSet<char> = rucksack[idx..].chars().collect();
-        
+
         if let Some(&x) = first.intersection(&second).nth(0) {
             acc += if x.is_lowercase() {
                 x as u32 - 96
@@ -27,17 +27,13 @@ pub fn part_two(input: &str) -> Option<u32> {
 
     for group in input.lines().chunks(3).into_iter() {
         let chars = group
-            .map(|g| g
-                .chars()
-                .collect::<HashSet<char>>())
+            .map(|g| g.chars().collect::<HashSet<char>>())
             .collect::<Vec<HashSet<char>>>();
 
         let res = chars[0]
             .iter()
-            .filter(|a| chars[1..]
-                .iter()
-                .all(|s| s.contains(a))
-            ).nth(0);
+            .filter(|a| chars[1..].iter().all(|s| s.contains(a)))
+            .nth(0);
 
         if let Some(&x) = res {
             acc += if x.is_lowercase() {

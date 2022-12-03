@@ -1,7 +1,7 @@
 enum Shape {
-   Rock,
-   Paper,
-   Scissors
+    Rock,
+    Paper,
+    Scissors,
 }
 
 fn parse_shape(input: &str) -> Shape {
@@ -9,7 +9,7 @@ fn parse_shape(input: &str) -> Shape {
         "A" | "X" => Shape::Rock,
         "B" | "Y" => Shape::Paper,
         "C" | "Z" => Shape::Scissors,
-        _ => unreachable!()
+        _ => unreachable!(),
     }
 }
 
@@ -29,7 +29,7 @@ pub fn part_one(input: &str) -> Option<u32> {
             (Shape::Rock, Shape::Rock) => 1 + 3,
             (Shape::Paper, Shape::Paper) => 2 + 3,
             (Shape::Scissors, Shape::Scissors) => 3 + 3,
-            _ => 0
+            _ => 0,
         }
     }
 
@@ -52,10 +52,8 @@ pub fn part_two(input: &str) -> Option<u32> {
             (Shape::Scissors, "X") => 0 + 2,
             (Shape::Scissors, "Y") => 3 + 3,
             (Shape::Scissors, "Z") => 6 + 1,
-            _ => 0
+            _ => 0,
         }
-
-        
     }
 
     Some(result)
