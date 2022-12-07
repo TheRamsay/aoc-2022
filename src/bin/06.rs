@@ -1,5 +1,3 @@
-use std::{collections::HashSet};
-
 use itertools::Itertools;
 
 pub fn first_distinct_substring(input: &str, count: usize) -> Option<u32>{
