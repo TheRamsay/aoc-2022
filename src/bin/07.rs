@@ -27,10 +27,11 @@ pub fn calculate_sizes(input: &str) -> HashMap<String, u32> {
                 path_builder.push_str(path_part.as_str());
                 *directories
                     .entry(path_builder.to_owned())
-                    .or_insert(0) += line.split(" ")
-                    .flat_map(|x| x.parse::<u32>())
-                    .nth(0)
-                    .unwrap()
+                    .or_insert(0) += line
+                        .split(" ")
+                        .flat_map(|x| x.parse::<u32>())
+                        .nth(0)
+                        .unwrap();
             }
         }
     }
